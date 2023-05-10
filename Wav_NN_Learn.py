@@ -227,14 +227,14 @@ def TestNN_(NetName, SourceDir, TargetFile, window_size):
     f.close()
 
 print('---start Learn---', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
-Learn_NN_5L_(TrainDir=r'C:\Users\valik\Downloads\Lab\Train\\',
-             ValidDir=r'C:\Users\valik\Downloads\Lab\Valid\\',
-             RezDir=r'C:\Users\valik\Downloads\Lab\rez_dir\\',
+Learn_NN_5L_(TrainDir=r'D:\git\AI-methods-and-systems\Train\\',
+             ValidDir=r'D:\git\AI-methods-and-systems\Valid\\',
+             RezDir=r'D:\git\AI-methods-and-systems\rez_dir\\',
              NN_Name='NN_L5', Epochs=5, window_size=25, windoe_fuction='hann')
 
 print('---end  Learn---', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
 
-TestNN_(NetName=r'C:\Users\valik\Downloads\Lab\rez_dir\NN_L5_Best.hdf5',
-            SourceDir=r'C:\Users\valik\Downloads\Lab\Test/',
-            TargetFile=r'C:\Users\valik\Downloads\Lab\rez_dir\NN_L5_rez',
+TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\NN_L5_Best.hdf5',
+            SourceDir=r'D:\git\AI-methods-and-systems\Test/',
+            TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\NN_L5_rez',
             window_size=25)
