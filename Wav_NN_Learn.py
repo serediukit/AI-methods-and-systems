@@ -235,6 +235,16 @@ Learn_NN_5L_(TrainDir=r'D:\git\AI-methods-and-systems\Train\\',
 print('---end  Learn---', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
 
 TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\NN_L5_Best.hdf5',
-            SourceDir=r'D:\git\AI-methods-and-systems\Test/',
-            TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\NN_L5_rez',
+            SourceDir=r'D:\git\AI-methods-and-systems\Test\\',
+            TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\Test\NN_L5_rez',
+            window_size=25)
+
+TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\NN_L5_Best.hdf5',
+            SourceDir=r'D:\git\AI-methods-and-systems\Train\\',
+            TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\Train\NN_L5_rez',
+            window_size=25)
+
+TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\NN_L5_Best.hdf5',
+            SourceDir=r'D:\git\AI-methods-and-systems\Valid\\',
+            TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\Valid\NN_L5_rez',
             window_size=25)
