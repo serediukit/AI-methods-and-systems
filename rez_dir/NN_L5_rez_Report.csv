@@ -1,0 +1,11 @@
+NetName = C:\Users\valik\Downloads\Lab\rez_dir\NN_L5_Best.hdf5, Files C:\Users\valik\Downloads\Lab\Test/ 
+Var,Cl 1,Cl 2,Cl 3, 
+Count,343,346, 342 ,
+Cl 1 As,308,9, 26 ,
+Cl 2 As,4,304, 38 ,
+Cl 3 As,1,11, 330 ,
+Cl 1 As %,89.796%,2.624%, 7.580% ,
+Cl 2  As %,1.156%,87.861%, 10.983% ,
+Cl 3 As %,0.292%,3.216%, 96.491% ,
+,
+Total acc. ,91.368% ,
