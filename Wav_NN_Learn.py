@@ -259,7 +259,8 @@ print('---start Learn---', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(tim
 #                  NN_Name='NN_L5', Epochs=10, window_size=neutrons, windoe_fuction='hann')
 #     print("2 - " + str(neutrons) + " done")
 
-for neutrons in range(19, 45):
+# for neutrons in range(19, 45):
+for neutrons in range(30, 45):
     Learn_NN_5L_(TrainDir=r'D:\git\AI-methods-and-systems\Train\\',
                  ValidDir=r'D:\git\AI-methods-and-systems\Valid\\',
                  RezDir=r'D:\git\AI-methods-and-systems\rez_dir\\',
