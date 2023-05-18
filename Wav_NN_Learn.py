@@ -223,62 +223,27 @@ def TestNN_(NetName, SourceDir, TargetFile, window_size):
 
     f.close()
 
+
+print('---start Learn---', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
+
 Learn_NN_5L_(TrainDir=r'D:\git\AI-methods-and-systems\Train\\',
              ValidDir=r'D:\git\AI-methods-and-systems\Valid\\',
              RezDir=r'D:\git\AI-methods-and-systems\rez_dir\\',
-             NN_Name='NN_L5', Epochs=15, window_size=35, windoe_fuction='hann')
+             NN_Name='NN_L5', Epochs=100, window_size=35, windoe_fuction='hann')
 
-TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\NN_L5_Best.hdf5',
-            SourceDir=r'D:\git\AI-methods-and-systems\Test\\',
-            TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\Test\NN_L5_rez',
-            window_size=35)
+print('---end  Learn---', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
 
-TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\NN_L5_Best.hdf5',
-            SourceDir=r'D:\git\AI-methods-and-systems\Train\\',
-            TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\Train\NN_L5_rez',
-            window_size=35)
-
-TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\NN_L5_Best.hdf5',
-            SourceDir=r'D:\git\AI-methods-and-systems\Valid\\',
-            TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\Valid\NN_L5_rez',
-            window_size=35)
-
-# print('---start Learn---', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
+# TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\NN_L5_Best.hdf5',
+#             SourceDir=r'D:\git\AI-methods-and-systems\Test\\',
+#             TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\Test\NN_L5_rez',
+#             window_size=35)
 #
-# # for neutrons in range(4, 15):
-# #     Learn_NN_5L_(TrainDir=r'D:\git\AI-methods-and-systems\Train\\',
-# #                  ValidDir=r'D:\git\AI-methods-and-systems\Valid\\',
-# #                  RezDir=r'D:\git\AI-methods-and-systems\rez_dir\\',
-# #                  NN_Name='NN_L5', Epochs=5, window_size=neutrons, windoe_fuction='hann')
-# #     print("1 - " + str(neutrons) + " done")
-# #
-# # for neutrons in range(13, 30):
-# #     Learn_NN_5L_(TrainDir=r'D:\git\AI-methods-and-systems\Train\\',
-# #                  ValidDir=r'D:\git\AI-methods-and-systems\Valid\\',
-# #                  RezDir=r'D:\git\AI-methods-and-systems\rez_dir\\',
-# #                  NN_Name='NN_L5', Epochs=10, window_size=neutrons, windoe_fuction='hann')
-# #     print("2 - " + str(neutrons) + " done")
+# TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\NN_L5_Best.hdf5',
+#             SourceDir=r'D:\git\AI-methods-and-systems\Train\\',
+#             TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\Train\NN_L5_rez',
+#             window_size=35)
 #
-# for neutrons in range(19, 45):
-#     Learn_NN_5L_(TrainDir=r'D:\git\AI-methods-and-systems\Train\\',
-#                  ValidDir=r'D:\git\AI-methods-and-systems\Valid\\',
-#                  RezDir=r'D:\git\AI-methods-and-systems\rez_dir\\',
-#                  NN_Name='NN_L5', Epochs=15, window_size=neutrons, windoe_fuction='hann')
-#     print("3 - " + str(neutrons) + " done")
-#
-# print('---end  Learn---', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
-#
-# # TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\NN_L5_Best.hdf5',
-# #             SourceDir=r'D:\git\AI-methods-and-systems\Test\\',
-# #             TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\Test\NN_L5_rez',
-# #             window_size=25)
-# #
-# # TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\NN_L5_Best.hdf5',
-# #             SourceDir=r'D:\git\AI-methods-and-systems\Train\\',
-# #             TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\Train\NN_L5_rez',
-# #             window_size=25)
-# #
-# # TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\NN_L5_Best.hdf5',
-# #             SourceDir=r'D:\git\AI-methods-and-systems\Valid\\',
-# #             TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\Valid\NN_L5_rez',
-# #             window_size=25)
+# TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\NN_L5_Best.hdf5',
+#             SourceDir=r'D:\git\AI-methods-and-systems\Valid\\',
+#             TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\Valid\NN_L5_rez',
+#             window_size=35)
