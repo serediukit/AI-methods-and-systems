@@ -110,7 +110,7 @@ def RandomozeArrays(SourceArrayX, SourceArrayY):
 
     return TargetArrayX,TargetArrayY
 
-def Learn_NN_5L_(TrainDir,ValidDir, RezDir, NN_Name, Epochs=30, window_size=25, windoe_fuction='hann'):
+def Learn_NN_5L_(TrainDir,ValidDir, RezDir, NN_Name, Epochs=30, window_size=25, windoe_fuction='hann', first_filters_count = 48, second_filters_count = 40):
     Source_Samples, Input_Files= Load_Wav_(TrainDir)
     print('end load train data', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
     Source_Samples, Input_Files = RandomozeArrays(Source_Samples, Input_Files)
@@ -132,11 +132,11 @@ def Learn_NN_5L_(TrainDir,ValidDir, RezDir, NN_Name, Epochs=30, window_size=25, 
     model = Sequential()
 
     model.add(BatchNormalization(input_shape = input_shape))
-    model.add(Convolution2D(48, (5, 5), strides = (3, 3), padding = 'same',input_shape = input_shape))
+    model.add(Convolution2D(first_filters_count, (5, 5), strides = (3, 3), padding = 'same',input_shape = input_shape))
     model.add(Activation('relu'))
     model.add(MaxPooling2D(pool_size=(2, 2), strides=(2,2), padding = 'same'))
     model.add(BatchNormalization())
-    model.add(Convolution2D(40, (3, 3), strides = (2, 2), padding = 'same'))
+    model.add(Convolution2D(second_filters_count, (3, 3), strides = (2, 2), padding = 'same'))
     model.add(Activation('relu'))
     model.add(Flatten())
     model.add(Dense(15))
@@ -147,7 +147,7 @@ def Learn_NN_5L_(TrainDir,ValidDir, RezDir, NN_Name, Epochs=30, window_size=25, 
     model.add(Activation('softmax'))
 
     model.compile(loss='categorical_crossentropy', optimizer=Adam(), metrics=['accuracy'])
-    csv_logger = CSVLogger(RezDir+NN_Name+'_'+str(int(Epochs/5))+'_'+str(window_size)+'_training__log.csv', separator=',', append=False)
+    csv_logger = CSVLogger(RezDir+NN_Name+'_E'+str(int(Epochs))+'_N'+str(window_size)+'_F1-'+str(first_filters_count)+'_training__log.csv', separator=',', append=False)
 
 
     checkpoint = ModelCheckpoint(filepath=RezDir+NN_Name+'_Best.hdf5',
@@ -224,12 +224,35 @@ def TestNN_(NetName, SourceDir, TargetFile, window_size):
     f.close()
 
 
+filters = [16, 32, 48, 64, 80, 96, 112, 128, 196, 256, 512, 1024]
+
 print('---start Learn---', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
 
-Learn_NN_5L_(TrainDir=r'D:\git\AI-methods-and-systems\Train\\',
-             ValidDir=r'D:\git\AI-methods-and-systems\Valid\\',
-             RezDir=r'D:\git\AI-methods-and-systems\rez_dir\\',
-             NN_Name='NN_L5', Epochs=100, window_size=35, windoe_fuction='hann')
+for filter in filters:
+    Learn_NN_5L_(TrainDir=r'D:\git\AI-methods-and-systems\Train\\',
+                 ValidDir=r'D:\git\AI-methods-and-systems\Valid\\',
+                 RezDir=r'D:\git\AI-methods-and-systems\rez_dir\\',
+                 NN_Name='NN_L5',
+                 Epochs=25,
+                 window_size=35,
+                 windoe_fuction='hann',
+                 first_filters_count = filter,
+                 second_filters_count = 40)
+
+    TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\NN_L5_Best.hdf5',
+                SourceDir=r'D:\git\AI-methods-and-systems\Test\\',
+                TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\Test\F1-'+str(filter)+'_rez',
+                window_size=35)
+
+    TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\NN_L5_Best.hdf5',
+                SourceDir=r'D:\git\AI-methods-and-systems\Train\\',
+                TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\Train\F1-'+str(filter)+'_rez',
+                window_size=35)
+
+    TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\NN_L5_Best.hdf5',
+                SourceDir=r'D:\git\AI-methods-and-systems\Valid\\',
+                TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\Valid\F1-'+str(filter)+'_rez',
+                window_size=35)
 
 print('---end  Learn---', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
 
