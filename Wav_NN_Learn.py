@@ -228,48 +228,31 @@ filters = [16, 32, 48, 64, 80, 96, 112, 128, 160, 192, 224, 256]
 
 print('---start Learn---', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
 
-for i in range(1, 12, 2):
-    for j in range(1, i + 1):
-        Learn_NN_5L_(TrainDir=r'D:\git\AI-methods-and-systems\Train\\',
-                     ValidDir=r'D:\git\AI-methods-and-systems\Valid\\',
-                     RezDir=r'D:\git\AI-methods-and-systems\rez_dir\kernel_size_and_strides\\',
-                     NN_Name='NN_L5',
-                     Epochs=25,
-                     window_size=35,
-                     windoe_fuction='hann',
-                     first_filters_count = 48,
-                     second_filters_count = 96,
-                     _kernel_size = (i, i),
-                     _strides = (j, j))
-
-        TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\kernel_size_and_strides\NN_L5_'+str(i)+'_'+str(j)+'_Best.hdf5',
-                    SourceDir=r'D:\git\AI-methods-and-systems\Test\\',
-                    TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\kernel_size_and_strides\Test\\'+str(i)+'_'+str(j)+'_rez',
-                    window_size=35)
-
-        TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\kernel_size_and_strides\NN_L5_'+str(i)+'_'+str(j)+'_Best.hdf5',
-                    SourceDir=r'D:\git\AI-methods-and-systems\Train\\',
-                    TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\kernel_size_and_strides\Train\\'+str(i)+'_'+str(j)+'_rez',
-                    window_size=35)
-
-        TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\kernel_size_and_strides\NN_L5_'+str(i)+'_'+str(j)+'_Best.hdf5',
-                    SourceDir=r'D:\git\AI-methods-and-systems\Valid\\',
-                    TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\kernel_size_and_strides\Valid\\'+str(i)+'_'+str(j)+'_rez',
-                    window_size=35)
+Learn_NN_5L_(TrainDir=r'D:\git\AI-methods-and-systems\Train\\',
+             ValidDir=r'D:\git\AI-methods-and-systems\Valid\\',
+             RezDir=r'D:\git\AI-methods-and-systems\rez_dir\\',
+             NN_Name='NN_L5',
+             Epochs=25,
+             window_size=35,
+             windoe_fuction='hann',
+             first_filters_count = 48,
+             second_filters_count = 96,
+             _kernel_size = (9, 9),
+             _strides = (4, 4))
 
 print('---end  Learn---', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
 
-# TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\NN_L5_Best.hdf5',
-#             SourceDir=r'D:\git\AI-methods-and-systems\Test\\',
-#             TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\Test\NN_L5_rez',
-#             window_size=35)
-#
-# TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\NN_L5_Best.hdf5',
-#             SourceDir=r'D:\git\AI-methods-and-systems\Train\\',
-#             TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\Train\NN_L5_rez',
-#             window_size=35)
-#
-# TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\NN_L5_Best.hdf5',
-#             SourceDir=r'D:\git\AI-methods-and-systems\Valid\\',
-#             TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\Valid\NN_L5_rez',
-#             window_size=35)
+TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\NN_L5_Best.hdf5',
+            SourceDir=r'D:\git\AI-methods-and-systems\Test\\',
+            TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\Test\NN_L5_rez',
+            window_size=35)
+
+TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\NN_L5_Best.hdf5',
+            SourceDir=r'D:\git\AI-methods-and-systems\Train\\',
+            TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\Train\NN_L5_rez',
+            window_size=35)
+
+TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\NN_L5_Best.hdf5',
+            SourceDir=r'D:\git\AI-methods-and-systems\Valid\\',
+            TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\Valid\NN_L5_rez',
+            window_size=35)
