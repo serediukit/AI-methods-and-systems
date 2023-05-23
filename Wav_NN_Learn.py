@@ -147,10 +147,10 @@ def Learn_NN_5L_(TrainDir,ValidDir, RezDir, NN_Name, Epochs=30, window_size=25, 
     model.add(Activation('softmax'))
 
     model.compile(loss='categorical_crossentropy', optimizer=Adam(), metrics=['accuracy'])
-    csv_logger = CSVLogger(RezDir+NN_Name+'_'+str(_kernel_size[0])+'_'+str(_strides[0])+'_training__log.csv', separator=',', append=False)
+    csv_logger = CSVLogger(RezDir+NN_Name+'_training__log.csv', separator=',', append=False)
 
 
-    checkpoint = ModelCheckpoint(filepath=RezDir+NN_Name+'_'+str(_kernel_size[0])+'_'+str(_strides[0])+'_Best.hdf5',
+    checkpoint = ModelCheckpoint(filepath=RezDir+NN_Name+'_Best.hdf5',
                  monitor='val_accuracy',
                  save_best_only=True,
                  mode='max',
@@ -160,7 +160,7 @@ def Learn_NN_5L_(TrainDir,ValidDir, RezDir, NN_Name, Epochs=30, window_size=25, 
           epochs = Epochs,shuffle=True,
           validation_data=(X_val1, y_val1),
           callbacks=[checkpoint, csv_logger])
-    model.save(filepath=RezDir+NN_Name+'_'+str(_kernel_size[0])+'_'+str(_strides[0])+'_Final.hdf5')
+    model.save(filepath=RezDir+NN_Name+'_Final.hdf5')
 
 def TestNN_(NetName, SourceDir, TargetFile, window_size):
     Input_Files = []
@@ -226,33 +226,33 @@ def TestNN_(NetName, SourceDir, TargetFile, window_size):
 
 filters = [16, 32, 48, 64, 80, 96, 112, 128, 160, 192, 224, 256]
 
-print('---start Learn---', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
+# print('---start Learn---', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
+#
+# Learn_NN_5L_(TrainDir=r'D:\git\AI-methods-and-systems\Train\\',
+#              ValidDir=r'D:\git\AI-methods-and-systems\Valid\\',
+#              RezDir=r'D:\git\AI-methods-and-systems\rez_dir\clearing_files\\',
+#              NN_Name='NN_L5',
+#              Epochs=25,
+#              window_size=35,
+#              windoe_fuction='hann',
+#              first_filters_count = 48,
+#              second_filters_count = 96,
+#              _kernel_size = (9, 9),
+#              _strides = (4, 4))
+#
+# print('---end  Learn---', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
 
-Learn_NN_5L_(TrainDir=r'D:\git\AI-methods-and-systems\Train\\',
-             ValidDir=r'D:\git\AI-methods-and-systems\Valid\\',
-             RezDir=r'D:\git\AI-methods-and-systems\rez_dir\\',
-             NN_Name='NN_L5',
-             Epochs=25,
-             window_size=35,
-             windoe_fuction='hann',
-             first_filters_count = 48,
-             second_filters_count = 96,
-             _kernel_size = (9, 9),
-             _strides = (4, 4))
-
-print('---end  Learn---', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
-
-TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\NN_L5_Best.hdf5',
+TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\clearing_files\NN_L5_Best.hdf5',
             SourceDir=r'D:\git\AI-methods-and-systems\Test\\',
-            TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\Test\NN_L5_rez',
+            TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\clearing_files\Test\NN_L5_rez',
             window_size=35)
 
-TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\NN_L5_Best.hdf5',
-            SourceDir=r'D:\git\AI-methods-and-systems\Train\\',
-            TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\Train\NN_L5_rez',
-            window_size=35)
+# TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\NN_L5_Best.hdf5',
+#             SourceDir=r'D:\git\AI-methods-and-systems\Train\\',
+#             TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\Train\NN_L5_rez',
+#             window_size=35)
 
-TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\NN_L5_Best.hdf5',
+TestNN_(NetName=r'D:\git\AI-methods-and-systems\rez_dir\clearing_files\NN_L5_Best.hdf5',
             SourceDir=r'D:\git\AI-methods-and-systems\Valid\\',
-            TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\Valid\NN_L5_rez',
+            TargetFile=r'D:\git\AI-methods-and-systems\rez_dir\clearing_files\Valid\NN_L5_rez',
             window_size=35)
