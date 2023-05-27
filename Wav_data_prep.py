@@ -190,15 +190,19 @@ def Divide_TrainTestValid(SourceDirectory, TrainDirectory, TestDirectory, ValidD
         dst = TrainDirectory + "\\"+  tFile
         copyfile(src, dst)
 
-ConvertTo_8K(SourceDir=r'D:\git\AI-methods-and-systems\data\seven', TargetDirectory=r'D:\git\AI-methods-and-systems\res_data', Prefics='seven', ClassType='cl_1')
-ConvertTo_8K(SourceDir=r'D:\git\AI-methods-and-systems\data\cat', TargetDirectory=r'D:\git\AI-methods-and-systems\res_data', Prefics='cat', ClassType='cl_2')
-ConvertTo_8K(SourceDir=r'D:\git\AI-methods-and-systems\data\tree', TargetDirectory=r'D:\git\AI-methods-and-systems\res_data', Prefics='other', ClassType='cl_3')
-ConvertTo_8K(SourceDir=r'D:\git\AI-methods-and-systems\data\six', TargetDirectory=r'D:\git\AI-methods-and-systems\res_data', Prefics='other', ClassType='cl_3')
-ConvertTo_8K(SourceDir=r'D:\git\AI-methods-and-systems\data\house', TargetDirectory=r'D:\git\AI-methods-and-systems\res_data', Prefics='other', ClassType='cl_3')
-
-Divide_TrainTestValid(SourceDirectory=r'D:\git\AI-methods-and-systems\res_data',
-                          TrainDirectory=r'D:\git\AI-methods-and-systems\Train',
-                          TestDirectory=r'D:\git\AI-methods-and-systems\Test',
-                          ValidDirectory=r'D:\git\AI-methods-and-systems\Valid',
-                          TestPercent=0.2,
-                          ValidPercent=0.2)
+# ConvertTo_8K(SourceDir=r'D:\git\AI-methods-and-systems\data\seven', TargetDirectory=r'D:\git\AI-methods-and-systems\res_data', Prefics='seven', ClassType='cl_1')
+# ConvertTo_8K(SourceDir=r'D:\git\AI-methods-and-systems\data\cat', TargetDirectory=r'D:\git\AI-methods-and-systems\res_data', Prefics='cat', ClassType='cl_2')
+# ConvertTo_8K(SourceDir=r'D:\git\AI-methods-and-systems\data\tree', TargetDirectory=r'D:\git\AI-methods-and-systems\res_data', Prefics='other', ClassType='cl_3')
+# ConvertTo_8K(SourceDir=r'D:\git\AI-methods-and-systems\data\six', TargetDirectory=r'D:\git\AI-methods-and-systems\res_data', Prefics='other', ClassType='cl_3')
+# ConvertTo_8K(SourceDir=r'D:\git\AI-methods-and-systems\data\house', TargetDirectory=r'D:\git\AI-methods-and-systems\res_data', Prefics='other', ClassType='cl_3')
+#
+# Divide_TrainTestValid(SourceDirectory=r'D:\git\AI-methods-and-systems\res_data',
+#                           TrainDirectory=r'D:\git\AI-methods-and-systems\Train',
+#                           TestDirectory=r'D:\git\AI-methods-and-systems\Test',
+#                           ValidDirectory=r'D:\git\AI-methods-and-systems\Valid',
+#                           TestPercent=0.2,
+#                           ValidPercent=0.2)
+#
+# ConvertTo_8K(SourceDir=r'D:\git\AI-methods-and-systems\blind_test\seven', TargetDirectory=r'D:\git\AI-methods-and-systems\converted_blind_test', Prefics='seven', ClassType='cl_1')
+# ConvertTo_8K(SourceDir=r'D:\git\AI-methods-and-systems\blind_test\cat', TargetDirectory=r'D:\git\AI-methods-and-systems\converted_blind_test', Prefics='cat', ClassType='cl_2')
+# ConvertTo_8K(SourceDir=r'D:\git\AI-methods-and-systems\blind_test\other', TargetDirectory=r'D:\git\AI-methods-and-systems\converted_blind_test', Prefics='other', ClassType='cl_3')

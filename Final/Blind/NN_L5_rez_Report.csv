@@ -1,0 +1,11 @@
+NetName = D:\git\AI-methods-and-systems\Final\NN_L5_Best.hdf5, Files D:\git\AI-methods-and-systems\Blind\\ 
+Var,Cl 1,Cl 2,Cl 3, 
+Count,147,162, 471 ,
+Cl 1 As,116,14, 17 ,
+Cl 2 As,29,69, 64 ,
+Cl 3 As,38,12, 421 ,
+Cl 1 As %,78.912%,9.524%, 11.565% ,
+Cl 2  As %,17.901%,42.593%, 39.506% ,
+Cl 3 As %,8.068%,2.548%, 89.384% ,
+,
+Total acc. ,77.692% ,
